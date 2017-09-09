@@ -116,11 +116,11 @@ class Tetsuko {
      * @return {void}
      */
     output(result) {
-        // resultのkeyからidを取得
-        const id_list = Object.keys(result);
+        // 入力値を該当するIDの要素のテキストにセット
+        this.id_list.forEach(id => HTML.setText(`result_${id}`, this[id]));
 
-        // idの各要素に各値を設定
-        id_list.forEach(id => HTML.setText(id, result[id]));
+        // resultを該当するIDの要素のテキストにセット
+        Object.keys(result).forEach(id => HTML.setText(id, result[id]));
 
         // 結果画面を表示
         HTML.showResult();
