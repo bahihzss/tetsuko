@@ -177,6 +177,9 @@ class HTML {
     static showResult() {
         document.getElementById('form').classList.remove('current');
         document.getElementById('result').classList.add('current');
+
+        // 画面上部まで戻る
+        window.scrollTo(0, 0);
     }
 
     /**
@@ -187,6 +190,10 @@ class HTML {
     static showForm() {
         document.getElementById('result').classList.remove('current');
         document.getElementById('form').classList.add('current');
+
+        // 画面上部まで戻る
+        window.scrollTo(0, 0);
+
         // 一番最初のInputにフォーカスする
         document.getElementById('form').getElementsByTagName('input')[0].focus();
     }
@@ -206,4 +213,20 @@ window.onload =function() {
 
     // 各Inputに初期値をセット
     tetsuko.init();
+
+    // 拡大禁止（スマホ向け）
+    document.documentElement.addEventListener('touchstart', function (event) {
+        if (event.touches.length > 1) {
+            event.preventDefault();
+        }
+    }, false);
+     
+    let lastTouchEnd = 0;
+    document.documentElement.addEventListener('touchend', function (event) {
+        var now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
 };
