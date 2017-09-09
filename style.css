@@ -1,0 +1,21 @@
+#wrapper {
+    position: relative;
+}
+
+#form, #result {
+    transition: all 300ms 0s ease;
+    opacity: 0;
+    z-index: -100;
+}
+
+#form.current, #result.current {
+    opacity: 1;
+    z-index: 1;
+}
+
+#result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}

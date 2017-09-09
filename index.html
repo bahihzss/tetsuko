@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel=stylesheet href="style.css"></script>
+    <script src="script.js"></script>
+    <title>ミリ単重外径自動計算</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <span class="navbar-brand">ミリ単重外径自動計算</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div id="wrapper">
+                    <div class="current" id="form">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-xs-6 col-md-4" for="weight">コイル重量</label>
+                                <div class="col-xs-6 col-md-8">
+                                    <input class="form-control input-sm" type="number" id="weight">
+                                </div>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label class="control-label col-xs-6 col-md-4" for="weight">コイル幅</label>
+                                <div class="col-xs-6 col-md-8">
+                                    <input class="form-control input-sm" type="number" id="width">
+                                </div>
+                            </div>                
+                    
+                            <div class="form-group">
+                                <label class="control-label col-xs-6 col-md-4" for="coef">係数</label>
+                                <div class="col-xs-6 col-md-8">
+                                    <input class="form-control input-sm" type="number" id="coef">
+                                </div>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label class="control-label col-xs-6 col-md-4" for="split_num">コイル分割数</label>
+                                <div class="col-xs-6 col-md-8">
+                                    <input class="form-control input-sm" type="number" id="split_num">
+                                </div>
+                            </div>
+                    
+                            <div class="form-group">
+                                <label class="control-label col-xs-6 col-md-4" for="inside">分割後のコイル内径</label>
+                                <div class="col-xs-6 col-md-8">
+                                    <select class="form-control input-sm" id="inside">
+                                        <option value="508">508</option>
+                                        <option value="305">305</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <button class="btn btn-danger btn-sm btn-block" id='calcButton'>計算</button>
+                            </div> 
+                        </div>
+                    </div>
+                <div id="result">
+                    <label>結果</label>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="success">ミリ単重</th>
+                                <th class="success">分割後のコイル外径</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span id="kg_mm"></span> kg/mm</td>
+                                <td><span id="outside"></span> mm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <label>指定以外のコンディションでの外径</label>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="success">分割数</th>
+                                <th class="success">内径508mm</th>
+                                <th class="success">内径305mm</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="active">1/1</td>
+                                <td><span id="outside_508_1"></span> mm</td>
+                                <td><span id="outside_305_1"></span> mm</td>
+                            </tr>
+                            <tr>
+                                <td class="active">1/2</td>
+                                <td><span id="outside_508_2"></span> mm</td>
+                                <td><span id="outside_305_2"></span> mm</td>
+                            </tr>
+                            <tr>
+                                <td class="active">1/3</td>
+                                <td><span id="outside_508_3"></span> mm</td>
+                                <td><span id="outside_305_3"></span> mm</td>
+                            </tr>
+                            <tr>
+                                <td class="active">1/4</td>
+                                <td><span id="outside_508_4"></span> mm</td>
+                                <td><span id="outside_305_4"></span> mm</td>
+                            </tr>
+                            <tr>
+                                <td class="active">1/5</td>
+                                <td><span id="outside_508_5"></span> mm</td>
+                                <td><span id="outside_305_5"></span> mm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <button class="btn btn-primary btn-sm btn-block" id='backButton'>再計算</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
