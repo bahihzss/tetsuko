@@ -6,24 +6,20 @@
     touch-callout: none;
 }
 
-#wrapper {
-    position: relative;
-}
-
 #form, #result {
-    transition: all 300ms 0s ease;
-    opacity: 0;
-    z-index: -100;
+    display: none;
 }
 
 #form.current, #result.current {
-    opacity: 1;
-    z-index: 1;
+    display: block;
+    animation: show 500ms linear 0s;
 }
 
-#result {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+@keyframes show{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
